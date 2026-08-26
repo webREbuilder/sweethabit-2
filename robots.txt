@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://sweethabit-2.vercel.app/sitemap.xml

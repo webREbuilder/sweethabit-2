@@ -1,0 +1,180 @@
+/* Sweet Habit – Custom CSS (plain CSS only, no Tailwind directives) */
+
+/* ─── Custom Properties ─────────────────────────────────────────── */
+:root {
+  --background: 40 30% 97%;
+  --foreground: 220 15% 15%;
+  --primary: 174 50% 28%;
+  --primary-foreground: 40 30% 97%;
+  --accent: 32 80% 50%;
+  --accent-foreground: 40 30% 97%;
+  --border: 220 10% 84%;
+  --radius: 0.25rem;
+
+  --color-brand-dark: #293F29;
+  --color-brand-gold: #C8A96E;
+  --color-brand-ivory: #F5F0E8;
+}
+
+/* ─── Google Fonts ───────────────────────────────────────────────── */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display,
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+}
+
+/* ─── Skip Link ──────────────────────────────────────────────────── */
+.wr-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #293F29;
+  color: #F5F0E8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.wr-skip-link:focus {
+  top: 1rem;
+}
+
+/* ─── Hero Grain Overlay ─────────────────────────────────────────── */
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ─── Hero Animations ────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.hero-eyebrow {
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.1s;
+}
+.hero-title {
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.25s;
+}
+.hero-sub {
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.4s;
+}
+.hero-actions {
+  animation: fadeUp 0.8s ease both;
+  animation-delay: 0.55s;
+}
+.scroll-indicator {
+  animation: fadeIn 1s ease both 1.2s, scrollBounce 2s ease-in-out infinite 2s;
+}
+
+/* ─── Scroll Reveal ──────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Gallery Image Hover ────────────────────────────────────────── */
+.gallery-img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.95);
+}
+.gallery-img:hover {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+
+/* ─── Menu Card ──────────────────────────────────────────────────── */
+.menu-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* ─── Button Primary ─────────────────────────────────────────────── */
+.btn-primary {
+  border-radius: var(--radius);
+}
+
+/* ─── Prose Content ──────────────────────────────────────────────── */
+.prose-content strong {
+  color: #293F29;
+  font-weight: 600;
+}
+.prose-content a {
+  color: #C8A96E;
+}
+.prose-content a:hover {
+  text-decoration: underline;
+}
+.prose-content ul {
+  padding-left: 0;
+}
+.prose-content li {
+  line-height: 1.7;
+}
+
+/* ─── Nav Link Underline ─────────────────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C8A96E;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C8A96E;
+  border-radius: 3px;
+}
